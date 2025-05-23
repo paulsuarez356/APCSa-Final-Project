@@ -1,11 +1,30 @@
 import java.util.*;
 import javax.swing.*;
 
+/**
+ * The Blackjack class implements a simple Blackjack game with GUI interaction.
+ * <p>
+ * It allows a player to place bets, draw cards, and play against a dealer following standard Blackjack rules.
+ * Messages and dialogs guide the player through the game round.
+ * This class extends the Game class and interacts with Player, Card, and GameGUI classes.
+ */
 public class Blackjack extends Game {
+
+    /**
+     * Constructs a new Blackjack game for the specified player.
+     *
+     * @param player the Player participating in the game
+     */
     public Blackjack(Player player) {
         super(player);
     }
 
+    /**
+     * Starts and manages a round of Blackjack using the provided JFrame for dialog windows.
+     * Handles the player's betting, card drawing, decision making, dealer logic, and determines the outcome.
+     *
+     * @param frame the JFrame used for displaying dialogs and messages
+     */
     @Override
     public void play(JFrame frame) {
         // Prompt for bet
@@ -23,7 +42,7 @@ public class Blackjack extends Game {
         List<Card> playerHand = new ArrayList<>();
         List<Card> dealerHand = new ArrayList<>();
 
-        // Deal cards one by one
+        // Deal cards one by one to player and dealer
         playerHand.add(deck.draw());
         JOptionPane.showMessageDialog(frame, "Your first card:\n" + playerHand.get(0).getAsciiArt());
         playerHand.add(deck.draw());
@@ -35,7 +54,7 @@ public class Blackjack extends Game {
         int playerTotal = getHandValue(playerHand);
         int dealerTotal = getHandValue(dealerHand);
 
-        // Player's turn
+        // Player's turn: choose hit or stay
         boolean playerTurn = true;
         while (playerTurn && playerTotal < 21) {
             StringBuilder msg = new StringBuilder("Your cards (Total: " + playerTotal + "):\n");
@@ -56,14 +75,14 @@ public class Blackjack extends Game {
             }
         }
 
-        // Check bust
+        // Check if player busted
         if (playerTotal > 21) {
             player.subtractChips(bet);
             showEnd(frame, "Busted with " + playerTotal + "! You lose " + bet + " chips.", bet);
             return;
         }
 
-        // Dealer's turn
+        // Dealer's turn: dealer draws until 17 or higher
         while (dealerTotal < 17) {
             Card newCard = deck.draw();
             dealerHand.add(newCard);
@@ -89,6 +108,13 @@ public class Blackjack extends Game {
         showEnd(frame, result, bet);
     }
 
+    /**
+     * Calculates the total value of a Blackjack hand.
+     * Aces are counted as 11 unless that would cause the hand to bust, in which case they count as 1.
+     *
+     * @param hand the list of Card objects representing a hand
+     * @return the integer value of the hand
+     */
     private int getHandValue(List<Card> hand) {
         int total = 0, aces = 0;
         for (Card c : hand) {
@@ -101,6 +127,14 @@ public class Blackjack extends Game {
         return total;
     }
 
+    /**
+     * Shows the end-of-game dialog, displays the outcome, and provides options for the player to play again,
+     * return to the menu, or exit.
+     *
+     * @param frame   the JFrame for displaying dialogs
+     * @param message the result message to display
+     * @param bet     the bet amount for the round
+     */
     private void showEnd(JFrame frame, String message, int bet) {
         String full = message + "\nChips: " + player.getChips();
         int choice = JOptionPane.showOptionDialog(frame, full + "\nWhat next?", "Game Over",
