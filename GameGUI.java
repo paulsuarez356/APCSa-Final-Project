@@ -1,37 +1,44 @@
+import javax.swing.*;
+
 /**
- * Represents a casino game player with a name and chip balance.
+ * Displays the main menu GUI for selecting and launching casino games.
  */
-public class Player {
-    private final String name;
-    private int chips;
+public class GameGUI {
+    private final Player player;
 
     /**
-     * Constructs a new player with the specified name and 100 starting chips.
+     * Constructs a new GameGUI for the specified player.
      *
-     * @param name the name of the player
+     * @param player the player interacting with the menu
      */
-    public Player(String name) {
-        this.name = name;
-        this.chips = 100;
+    public GameGUI(Player player) {
+        this.player = player;
     }
 
-    /** @return the name of the player */
-    public String getName() { return name; }
-
-    /** @return the current chip count of the player */
-    public int getChips() { return chips; }
-
     /**
-     * Adds chips to the player's total.
-     *
-     * @param amount the number of chips to add
+     * Displays the main menu where the user can choose to play Blackjack, War, or Exit.
      */
-    public void addChips(int amount) { chips += amount; }
+    public void show() {
+        JFrame frame = new JFrame("ASCII Casino World");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 200);
 
-    /**
-     * Subtracts chips from the player's total.
-     *
-     * @param amount the number of chips to subtract
-     */
-    public void subtractChips(int amount) { chips -= amount; }
+        String[] options = {"Blackjack", "War", "Exit"};
+        int choice = JOptionPane.showOptionDialog(frame,
+                "Welcome, " + player.getName() + "!\nChips: " + player.getChips(),
+                "Casino Menu",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                options,
+                options[0]);
+
+        if (choice == 0) {
+            new Blackjack(player).play(frame);
+        } else if (choice == 1) {
+            new War(player).play(frame);
+        } else {
+            System.exit(0);
+        }
+    }
 }
