@@ -1,19 +1,14 @@
 import javax.swing.*;
 
 /**
- * Entry point for the casino game application.
+ * Entry point for the ASCII Casino World application.
  * <p>
- * This class contains the main method which prompts the user for their name,
- * creates a Player, and launches the GameGUI.
+ * Prompts the player for their name and launches the game menu.
  */
 public class CasinoGame {
 
     /**
-     * The main method that starts the casino game application.
-     * <p>
-     * Prompts the user for their player name using a dialog box. If the user input is empty or cancelled,
-     * a default name "Player" is used. A Player instance is created and the graphical game interface
-     * is launched.
+     * Main method to start the casino game application.
      *
      * @param args command-line arguments (not used)
      */
