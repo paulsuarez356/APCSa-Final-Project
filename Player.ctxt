@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Player
+comment0.text=\r\n\ Represents\ a\ player\ in\ the\ casino\ application.\r\n\ <p>\r\n\ The\ Player\ class\ holds\ the\ player's\ name\ and\ chip\ count,\ and\ provides\ methods\r\n\ to\ access\ and\ modify\ these\ properties.\r\n
+comment1.params=name
+comment1.target=Player(java.lang.String)
+comment1.text=\r\n\ Constructs\ a\ new\ Player\ with\ the\ specified\ name.\r\n\ The\ player\ starts\ with\ a\ default\ chip\ count\ of\ 100.\r\n\r\n\ @param\ name\ the\ name\ of\ the\ player\r\n
+comment2.params=
+comment2.target=java.lang.String\ getName()
+comment2.text=\r\n\ Returns\ the\ name\ of\ the\ player.\r\n\r\n\ @return\ the\ player's\ name\r\n
+comment3.params=
+comment3.target=int\ getChips()
+comment3.text=\r\n\ Returns\ the\ number\ of\ chips\ the\ player\ currently\ has.\r\n\r\n\ @return\ the\ player's\ chip\ count\r\n
+comment4.params=amount
+comment4.target=void\ addChips(int)
+comment4.text=\r\n\ Adds\ the\ specified\ amount\ to\ the\ player's\ chip\ count.\r\n\r\n\ @param\ amount\ the\ number\ of\ chips\ to\ add\r\n
+comment5.params=amount
+comment5.target=void\ removeChips(int)
+comment5.text=\r\n\ Subtracts\ the\ specified\ amount\ from\ the\ player's\ chip\ count.\r\n\ The\ chip\ count\ will\ not\ go\ below\ zero.\r\n\r\n\ @param\ amount\ the\ number\ of\ chips\ to\ subtract\r\n
+numComments=6

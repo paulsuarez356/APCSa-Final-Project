@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Game
+comment0.text=\r\n\ Abstract\ base\ class\ for\ all\ casino\ games.\r\n\ <p>\r\n\ The\ Game\ class\ provides\ a\ common\ structure\ for\ casino-style\ games\ and\ manages\r\n\ the\ player\ and\ a\ deck\ of\ cards.\ Subclasses\ must\ implement\ the\ play\ method\ to\ define\r\n\ their\ game\ logic.\r\n
+comment1.params=player
+comment1.target=Game(Player)
+comment1.text=\r\n\ Constructs\ a\ new\ Game\ with\ the\ specified\ player.\r\n\ Initializes\ a\ new\ shuffled\ deck\ for\ the\ game.\r\n\r\n\ @param\ player\ the\ Player\ participating\ in\ the\ game\r\n
+comment2.params=frame
+comment2.target=void\ play(javax.swing.JFrame)
+comment2.text=\r\n\ Starts\ and\ manages\ a\ round\ of\ the\ game.\r\n\ <p>\r\n\ Subclasses\ must\ implement\ this\ method\ to\ provide\ the\ specific\ game\ logic.\r\n\r\n\ @param\ frame\ the\ JFrame\ used\ for\ displaying\ dialogs\ and\ messages\r\n
+numComments=3

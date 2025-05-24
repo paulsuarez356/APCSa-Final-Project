@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Card
+comment0.text=\r\n\ Represents\ a\ playing\ card\ with\ a\ suit,\ rank,\ and\ value.\r\n\ <p>\r\n\ The\ Card\ class\ is\ immutable\ and\ provides\ methods\ to\ access\ card\ properties.\r\n\ It\ also\ includes\ a\ method\ to\ generate\ a\ simple\ ASCII\ art\ representation\r\n\ of\ the\ card\ for\ display\ purposes.\r\n
+comment1.params=suit\ rank\ value
+comment1.target=Card(java.lang.String,\ java.lang.String,\ int)
+comment1.text=\r\n\ Constructs\ a\ Card\ with\ the\ specified\ suit,\ rank,\ and\ value.\r\n\r\n\ @param\ suit\ \ the\ suit\ of\ the\ card\ (e.g.,\ "Hearts")\r\n\ @param\ rank\ \ the\ rank\ of\ the\ card\ (e.g.,\ "Ace",\ "10",\ "King")\r\n\ @param\ value\ the\ value\ of\ the\ card\ for\ game\ logic\r\n
+comment2.params=
+comment2.target=java.lang.String\ getSuit()
+comment2.text=\r\n\ Gets\ the\ suit\ of\ the\ card.\r\n\r\n\ @return\ the\ suit\ of\ the\ card\r\n
+comment3.params=
+comment3.target=java.lang.String\ getRank()
+comment3.text=\r\n\ Gets\ the\ rank\ of\ the\ card.\r\n\r\n\ @return\ the\ rank\ of\ the\ card\r\n
+comment4.params=
+comment4.target=int\ getValue()
+comment4.text=\r\n\ Gets\ the\ value\ of\ the\ card.\r\n\r\n\ @return\ the\ value\ of\ the\ card\r\n
+comment5.params=
+comment5.target=java.lang.String\ getAsciiArt()
+comment5.text=\r\n\ Returns\ an\ ASCII\ art\ representation\ of\ the\ card.\r\n\ The\ ASCII\ art\ displays\ the\ card's\ rank\ and\ the\ first\ character\ of\ its\ suit.\r\n\r\n\ @return\ a\ string\ containing\ the\ ASCII\ art\ of\ the\ card\r\n
+numComments=6

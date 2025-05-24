@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Deck
+comment0.text=\r\n\ Represents\ a\ standard\ deck\ of\ playing\ cards.\r\n\ <p>\r\n\ This\ class\ handles\ creation,\ shuffling,\ and\ drawing\ of\ cards.\ It\ automatically\r\n\ reshuffles\ the\ deck\ when\ all\ cards\ have\ been\ drawn.\r\n
+comment1.params=
+comment1.target=Deck()
+comment1.text=\r\n\ Constructs\ a\ standard\ deck\ of\ 52\ playing\ cards.\r\n\ <p>\r\n\ Each\ card\ has\ a\ suit\ ("Hearts",\ "Diamonds",\ "Clubs",\ "Spades")\ and\ a\ rank\r\n\ ("2"\ through\ "10",\ "Jack",\ "Queen",\ "King",\ "Ace")\ with\ associated\ values.\r\n\ Face\ cards\ have\ a\ value\ of\ 10,\ and\ Ace\ has\ a\ value\ of\ 11.\r\n
+comment2.params=
+comment2.target=void\ shuffle()
+comment2.text=\r\n\ Shuffles\ the\ deck\ and\ resets\ the\ draw\ index.\r\n\ <p>\r\n\ After\ shuffling,\ cards\ will\ be\ drawn\ from\ the\ top\ of\ the\ shuffled\ deck.\r\n
+comment3.params=
+comment3.target=Card\ draw()
+comment3.text=\r\n\ Draws\ the\ next\ card\ from\ the\ deck.\r\n\ <p>\r\n\ If\ all\ cards\ have\ been\ drawn,\ the\ deck\ is\ automatically\ reshuffled.\r\n\r\n\ @return\ the\ next\ Card\ in\ the\ deck\r\n
+numComments=4
