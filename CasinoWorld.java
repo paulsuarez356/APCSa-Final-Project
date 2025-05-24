@@ -1,32 +1,27 @@
 import javax.swing.*;
 
 /**
- * Facilitates access to different casino games within the application.
+ * Acts as a controller to launch specific games from the casino.
  * <p>
- * The CasinoWorld class provides methods to launch various games, such as Blackjack and War,
- * using the provided graphical interface and player instance.
+ * Provides methods to start Blackjack or War using a shared GUI frame and player instance.
  */
 public class CasinoWorld {
 
     /**
-     * Starts a game of Blackjack for the specified player.
-     * <p>
-     * This method creates a new Blackjack game instance and launches the game UI in the specified frame.
+     * Launches a round of Blackjack using the specified frame and player.
      *
-     * @param frame  the JFrame to use for dialog windows and game display
-     * @param player the Player who will play the Blackjack game
+     * @param frame  the JFrame used for displaying dialogs
+     * @param player the player participating in the game
      */
     public void playBlackjack(JFrame frame, Player player) {
         new Blackjack(player).play(frame);
     }
 
     /**
-     * Starts a game of War for the specified player.
-     * <p>
-     * This method creates a new War game instance and launches the game UI in the specified frame.
+     * Launches a round of War using the specified frame and player.
      *
-     * @param frame  the JFrame to use for dialog windows and game display
-     * @param player the Player who will play the War game
+     * @param frame  the JFrame used for displaying dialogs
+     * @param player the player participating in the game
      */
     public void playWar(JFrame frame, Player player) {
         new War(player).play(frame);
