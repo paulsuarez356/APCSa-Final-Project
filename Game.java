@@ -1,40 +1,34 @@
+import javax.swing.*;
+
 /**
- * Abstract base class for all casino games.
+ * Abstract base class for casino games.
  * <p>
- * The Game class provides a common structure for casino-style games and manages
- * the player and a deck of cards. Subclasses must implement the play method to define
- * their game logic.
+ * Provides shared structure and resources such as player reference and shuffled deck.
+ * Specific games like Blackjack or War extend this class and implement the {@code play} method.
  */
 public abstract class Game {
+    /** The player participating in the game. */
+    protected final Player player;
+
+    /** The deck of cards used in the game. */
+    protected final Deck deck;
 
     /**
-     * The player participating in the game.
-     */
-    protected Player player;
-
-    /**
-     * The deck of cards used in the game.
-     */
-    protected Deck deck;
-
-    /**
-     * Constructs a new Game with the specified player.
-     * Initializes a new shuffled deck for the game.
+     * Constructs a new game with a given player.
+     * Initializes and shuffles the deck.
      *
      * @param player the Player participating in the game
      */
     public Game(Player player) {
         this.player = player;
         this.deck = new Deck();
-        deck.shuffle();
+        this.deck.shuffle();
     }
 
     /**
-     * Starts and manages a round of the game.
-     * <p>
-     * Subclasses must implement this method to provide the specific game logic.
+     * Starts the game. Must be implemented by concrete subclasses.
      *
-     * @param frame the JFrame used for displaying dialogs and messages
+     * @param frame the JFrame used for displaying dialogs and user interaction
      */
-    public abstract void play(javax.swing.JFrame frame);
+    public abstract void play(JFrame frame);
 }
