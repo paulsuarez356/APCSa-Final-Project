@@ -1,10 +1,11 @@
 import javax.swing.*;
 
 /**
- * The War class implements the card game "War" where the player draws one card and compares it to an opponent's card.
+ * The War class implements a simple card game where the player and an opponent draw one card each,
+ * and the higher card wins.
  * <p>
- * The player places a bet, draws a card, and wins or loses chips depending on whose card is higher.
- * In the event of a tie, no chips are exchanged. This class extends the abstract Game class.
+ * The player places a bet and wins, loses, or ties based on the result.
+ * This class extends the Game class and uses standard card drawing and betting logic.
  */
 public class War extends Game {
 
@@ -18,10 +19,9 @@ public class War extends Game {
     }
 
     /**
-     * Starts and manages a round of the War game using the provided JFrame for dialog windows.
-     * Handles betting, card drawing, result calculation, and presenting end-of-round options.
+     * Starts a round of War, prompting the user to bet and displaying the card results.
      *
-     * @param frame the JFrame used for displaying dialogs and messages
+     * @param frame the JFrame used for dialog display
      */
     @Override
     public void play(JFrame frame) {
@@ -29,23 +29,17 @@ public class War extends Game {
         int bet = 0;
         while (bet <= 0 || bet > player.getChips()) {
             String input = JOptionPane.showInputDialog(frame, "Enter your bet (1 - " + player.getChips() + "): ");
-            if (input == null) return; // cancel returns to menu
-            try {
-                bet = Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                bet = 0;
-            }
+            if (input == null) return;
+            try { bet = Integer.parseInt(input); } catch (NumberFormatException e) { bet = 0; }
         }
 
-        // Draw and display player's card
+        // Draw and show cards
         Card playerCard = deck.draw();
         JOptionPane.showMessageDialog(frame, "Your card:\n" + playerCard.getAsciiArt());
-
-        // Draw and display opponent's card
         Card opponentCard = deck.draw();
         JOptionPane.showMessageDialog(frame, "Opponent's card:\n" + opponentCard.getAsciiArt());
 
-        // Determine and show result
+        // Determine winner
         String result;
         if (playerCard.getValue() > opponentCard.getValue()) {
             player.addChips(bet);
@@ -61,11 +55,10 @@ public class War extends Game {
     }
 
     /**
-     * Shows the end-of-round dialog, displays the outcome, and provides options to play again,
-     * return to the menu, or exit the game.
+     * Displays the outcome of the round and offers to replay, return to menu, or exit.
      *
-     * @param frame   the JFrame used for dialogs
-     * @param message the result message to display
+     * @param frame   the JFrame for displaying dialogs
+     * @param message the result message to show
      */
     private void showEnd(JFrame frame, String message) {
         String full = message + "\nChips: " + player.getChips();
